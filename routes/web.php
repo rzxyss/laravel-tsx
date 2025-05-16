@@ -5,10 +5,13 @@ use App\Http\Controllers\RoleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\API\AuthController;
 
 Route::get('/', function () {
     return redirect()->route('login');
 });
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 
 Route::prefix('roles')->group(function () {
