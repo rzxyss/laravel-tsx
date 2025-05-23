@@ -1,0 +1,389 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Rest API Apps Online",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "User Authentication",
+                "description": "Service get token",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "username",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return token bearer.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "200"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Successfully"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "token": {
+                                                    "type": "string",
+                                                    "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1hcHBzLnRlc3QvYXBpL2xvZ2luIiwiaWF0IjoxNzQ3OTI3NDI1LCJleHAiOjE3NDc5MzEwMjUsIm5iZiI6MTc0NzkyNzQyNSwianRpIjoiT1paWmw0bmp2UlJGNkc4ZiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3IiwidHlwZSI6ImFjY2VzcyJ9.YS8cvi9yLvsE-nhp2VEPHcZVbbDdmDWT2mfrLhNbPXE"
+                                                },
+                                                "refresh_token": {
+                                                    "type": "string",
+                                                    "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1hcHBzLnRlc3QvYXBpL2xvZ2luIiwiaWF0IjoxNzQ3OTI3NDI2LCJleHAiOjE3NDkxMzcwMjYsIm5iZiI6MTc0NzkyNzQyNiwianRpIjoibWhIMlZ4Q2NPSEFldDRiVCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3IiwidHlwZSI6InJlZnJlc2gifQ.Zi3mj9912qX06tFukhG2PxTIZug-UjWO6m2CRbq2q1Y"
+                                                },
+                                                "token_type": {
+                                                    "type": "string",
+                                                    "example": "bearer"
+                                                },
+                                                "user": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": "1"
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "Anisa Putri Setyaningrum"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": "anisaputris@gmail.com"
+                                                        },
+                                                        "email_verified_at": {
+                                                            "type": "string",
+                                                            "example": "2023-09-14T08:32:45.000000Z"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2023-09-14T08:32:45.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2023-09-14T08:32:45.000000Z"
+                                                        },
+                                                        "username": {
+                                                            "type": "string",
+                                                            "example": "massidiqf"
+                                                        },
+                                                        "roles": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "type": "integer",
+                                                                        "example": "1"
+                                                                    },
+                                                                    "name": {
+                                                                        "type": "string",
+                                                                        "example": "Superadmin"
+                                                                    },
+                                                                    "guard_name": {
+                                                                        "type": "string",
+                                                                        "example": "api"
+                                                                    },
+                                                                    "created_at": {
+                                                                        "type": "string",
+                                                                        "example": "2023-09-14T08:32:45.000000Z"
+                                                                    },
+                                                                    "updated_at": {
+                                                                        "type": "string",
+                                                                        "example": "2023-09-14T08:32:45.000000Z"
+                                                                    },
+                                                                    "pivot": {
+                                                                        "properties": {
+                                                                            "model_type": {
+                                                                                "type": "string",
+                                                                                "example": "App\\\\Models\\\\User"
+                                                                            },
+                                                                            "model_id": {
+                                                                                "type": "integer",
+                                                                                "example": "1"
+                                                                            },
+                                                                            "role_id": {
+                                                                                "type": "integer",
+                                                                                "example": "1"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "permissions": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "properties": {
+                                                                                "id": {
+                                                                                    "type": "integer",
+                                                                                    "example": "1"
+                                                                                },
+                                                                                "name": {
+                                                                                    "type": "string",
+                                                                                    "example": "role"
+                                                                                },
+                                                                                "guard_name": {
+                                                                                    "type": "string",
+                                                                                    "example": "api"
+                                                                                },
+                                                                                "created_at": {
+                                                                                    "type": "string",
+                                                                                    "example": "2023-09-14T08:32:45.000000Z"
+                                                                                },
+                                                                                "updated_at": {
+                                                                                    "type": "string",
+                                                                                    "example": "2023-09-14T08:32:45.000000Z"
+                                                                                },
+                                                                                "pivot": {
+                                                                                    "properties": {
+                                                                                        "role_id": {
+                                                                                            "type": "integer",
+                                                                                            "example": "1"
+                                                                                        },
+                                                                                        "permission_id": {
+                                                                                            "type": "integer",
+                                                                                            "example": "1"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "object"
+                                                                                }
+                                                                            },
+                                                                            "type": "object"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/refresh-token": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Refresh Token User",
+                "description": "service call when token is expired",
+                "operationId": "4ab6101655d05e8db11acfc00485e5c1",
+                "responses": {
+                    "200": {
+                        "description": "Return token bearer.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "200"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Successfully"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "token": {
+                                                    "type": "string",
+                                                    "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1hcHBzLnRlc3QvYXBpL2xvZ2luIiwiaWF0IjoxNzQ3OTI3NDI1LCJleHAiOjE3NDc5MzEwMjUsIm5iZiI6MTc0NzkyNzQyNSwianRpIjoiT1paWmw0bmp2UlJGNkc4ZiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3IiwidHlwZSI6ImFjY2VzcyJ9.YS8cvi9yLvsE-nhp2VEPHcZVbbDdmDWT2mfrLhNbPXE"
+                                                },
+                                                "refresh_token": {
+                                                    "type": "string",
+                                                    "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1hcHBzLnRlc3QvYXBpL2xvZ2luIiwiaWF0IjoxNzQ3OTI3NDI2LCJleHAiOjE3NDkxMzcwMjYsIm5iZiI6MTc0NzkyNzQyNiwianRpIjoibWhIMlZ4Q2NPSEFldDRiVCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3IiwidHlwZSI6InJlZnJlc2gifQ.Zi3mj9912qX06tFukhG2PxTIZug-UjWO6m2CRbq2q1Y"
+                                                },
+                                                "token_type": {
+                                                    "type": "string",
+                                                    "example": "bearer"
+                                                },
+                                                "user": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": "1"
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "Anisa Putri Setyaningrum"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": "anisaputris@gmail.com"
+                                                        },
+                                                        "email_verified_at": {
+                                                            "type": "string",
+                                                            "example": "2023-09-14T08:32:45.000000Z"
+                                                        },
+                                                        "created_at": {
+                                                            "type": "string",
+                                                            "example": "2023-09-14T08:32:45.000000Z"
+                                                        },
+                                                        "updated_at": {
+                                                            "type": "string",
+                                                            "example": "2023-09-14T08:32:45.000000Z"
+                                                        },
+                                                        "username": {
+                                                            "type": "string",
+                                                            "example": "anisaps"
+                                                        },
+                                                        "roles": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "type": "integer",
+                                                                        "example": "1"
+                                                                    },
+                                                                    "name": {
+                                                                        "type": "string",
+                                                                        "example": "Superadmin"
+                                                                    },
+                                                                    "guard_name": {
+                                                                        "type": "string",
+                                                                        "example": "api"
+                                                                    },
+                                                                    "created_at": {
+                                                                        "type": "string",
+                                                                        "example": "2023-09-14T08:32:45.000000Z"
+                                                                    },
+                                                                    "updated_at": {
+                                                                        "type": "string",
+                                                                        "example": "2023-09-14T08:32:45.000000Z"
+                                                                    },
+                                                                    "pivot": {
+                                                                        "properties": {
+                                                                            "model_type": {
+                                                                                "type": "string",
+                                                                                "example": "App\\\\Models\\\\User"
+                                                                            },
+                                                                            "model_id": {
+                                                                                "type": "integer",
+                                                                                "example": "1"
+                                                                            },
+                                                                            "role_id": {
+                                                                                "type": "integer",
+                                                                                "example": "1"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "permissions": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "properties": {
+                                                                                "id": {
+                                                                                    "type": "integer",
+                                                                                    "example": "1"
+                                                                                },
+                                                                                "name": {
+                                                                                    "type": "string",
+                                                                                    "example": "role"
+                                                                                },
+                                                                                "guard_name": {
+                                                                                    "type": "string",
+                                                                                    "example": "api"
+                                                                                },
+                                                                                "created_at": {
+                                                                                    "type": "string",
+                                                                                    "example": "2023-09-14T08:32:45.000000Z"
+                                                                                },
+                                                                                "updated_at": {
+                                                                                    "type": "string",
+                                                                                    "example": "2023-09-14T08:32:45.000000Z"
+                                                                                },
+                                                                                "pivot": {
+                                                                                    "properties": {
+                                                                                        "role_id": {
+                                                                                            "type": "integer",
+                                                                                            "example": "1"
+                                                                                        },
+                                                                                        "permission_id": {
+                                                                                            "type": "integer",
+                                                                                            "example": "1"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "object"
+                                                                                }
+                                                                            },
+                                                                            "type": "object"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiAuth": {
+                "type": "http",
+                "description": "Authentication with username and password",
+                "name": "Token",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Auth",
+            "description": "Auth"
+        }
+    ]
+}
